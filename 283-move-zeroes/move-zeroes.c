@@ -1,15 +1,12 @@
 void moveZeroes(int* nums, int numsSize) {
-    int j = 0;  // Position for next non-zero element
+    int j = 0;  // Position for the next non-zero element
 
-    // Move all non-zero elements to the front
     for (int i = 0; i < numsSize; i++) {
         if (nums[i] != 0) {
-            nums[j++] = nums[i];
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+            j++;
         }
-    }
-
-    // Fill remaining positions with zeros
-    while (j < numsSize) {
-        nums[j++] = 0;
     }
 }
